@@ -2,8 +2,8 @@
 # Run from repo root: .\setup.ps1
 
 Write-Host "Checking Docker..." -ForegroundColor Yellow
-docker info 2>$null | Out-Null
-if (-not $?) {
+$null = docker info 2>&1
+if ($LASTEXITCODE -ne 0) {
     Write-Host "ERROR: Docker is not running. Start Docker Desktop and try again." -ForegroundColor Red
     exit 1
 }
@@ -27,5 +27,6 @@ Get-Content module-01-sql-concepts/project/seed_data.sql | docker exec -i sqlcou
 
 Write-Host "`nDone! Connect with:" -ForegroundColor Green
 Write-Host "  psql:    docker exec -it sqlcourse-postgres psql -U postgres -d postgres" -ForegroundColor Cyan
+Write-Host "  pgAdmin: localhost:5432 | db=postgres | user=postgres | password=postgres" -ForegroundColor Cyan
 Write-Host "  DBeaver: localhost:5432 | db=postgres | user=postgres | password=postgres" -ForegroundColor Cyan
 Write-Host "`nThen run: SELECT * FROM customers LIMIT 5;" -ForegroundColor Gray

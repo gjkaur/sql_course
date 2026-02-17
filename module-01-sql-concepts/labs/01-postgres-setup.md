@@ -11,6 +11,17 @@
 - Docker and Docker Compose installed
 - Terminal/command line access
 
+## Alternative: Local PostgreSQL (No Docker)
+
+If you have PostgreSQL and pgAdmin installed locally, you can skip Docker:
+
+1. Create a database in pgAdmin (e.g. `sqlcourse`)
+2. Open Query Tool and run in order:
+   - `module-01-sql-concepts/project/schema.sql`
+   - `module-01-sql-concepts/project/constraints.sql`
+   - `module-01-sql-concepts/project/seed_data.sql`
+3. Connect: Host=`localhost`, Port=`5432`, User=`postgres`, Password=(your local PostgreSQL password)
+
 ## Steps
 
 ### 1. Start PostgreSQL
@@ -54,14 +65,16 @@ DROP TABLE test;
 
 ### 4. Optional: pgAdmin
 
-```bash
-# Start pgAdmin (includes postgres)
-docker-compose --profile tools up -d
+**Option A — Docker pgAdmin:**
 
-# Open http://localhost:5050
+```bash
+docker-compose --profile tools up -d
+# Open http://localhost:5051
 # Login: admin@postgres.local / (your PGADMIN_PASSWORD)
-# Add server: host=postgres, port=5432, user=postgres
+# Add server: host=postgres, port=5432, user=postgres, password=postgres
 ```
+
+**Option B — Local pgAdmin (no Docker):** Use your installed pgAdmin. Connect to localhost:5432 with your local PostgreSQL credentials. Load schema files manually (see "Alternative: Local PostgreSQL" above).
 
 ## Troubleshooting
 
