@@ -27,10 +27,10 @@ docker ps
 
 ```bash
 # From host (if psql is installed)
-psql -h localhost -p 5432 -U sqlcourse -d sqlcourse
+psql -h localhost -p 5432 -U postgres -d postgres
 
 # Or from inside container
-docker exec -it sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+docker exec -it sqlcourse-postgres psql -U postgres -d postgres
 ```
 
 ### 3. Verify Connection
@@ -59,8 +59,8 @@ DROP TABLE test;
 docker-compose --profile tools up -d
 
 # Open http://localhost:5050
-# Login: admin@sqlcourse.local / (your PGADMIN_PASSWORD)
-# Add server: host=postgres, port=5432, user=sqlcourse
+# Login: admin@postgres.local / (your PGADMIN_PASSWORD)
+# Add server: host=postgres, port=5432, user=postgres
 ```
 
 ## Troubleshooting
@@ -69,7 +69,7 @@ docker-compose --profile tools up -d
 |-------|----------|
 | Port 5432 in use | Change port in docker-compose: `"5433:5432"` |
 | Connection refused | Wait for healthcheck; `docker logs sqlcourse-postgres` |
-| Password auth failed | Check `.env` or use default `sqlcourse` |
+| Password auth failed | Check `.env` or use default `postgres` |
 
 ## Success Criteria
 

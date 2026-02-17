@@ -38,7 +38,7 @@ cp .env.example .env
 docker-compose up -d
 
 # Connect to PostgreSQL (default: localhost:5432)
-psql -h localhost -U sqlcourse -d sqlcourse
+psql -h localhost -U postgres -d postgres
 
 # Run Module 1 schema
 \i module-01-sql-concepts/project/schema.sql

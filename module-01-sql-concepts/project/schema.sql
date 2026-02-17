@@ -1,5 +1,5 @@
 -- Module 1: Online Retail System — Schema
--- Run: psql -h localhost -U sqlcourse -d sqlcourse -f schema.sql
+-- Run: psql -h localhost -U postgres -d postgres -f schema.sql
 
 -- Drop existing objects (for clean re-run)
 DROP TABLE IF EXISTS order_items;

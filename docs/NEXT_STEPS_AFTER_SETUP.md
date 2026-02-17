@@ -23,9 +23,9 @@ You should see `sqlcourse-postgres` with status **Up** and **(healthy)**.
 3. Enter:
    - **Host:** `localhost`
    - **Port:** `5432`
-   - **Database:** `sqlcourse`
-   - **Username:** `sqlcourse`
-   - **Password:** *(leave blank — trust auth)*
+   - **Database:** `postgres`
+   - **Username:** `postgres`
+   - **Password:** `postgres`
    - Check **Save password** (optional).
 4. Click **Test Connection**.
    - If prompted to download drivers, click **Download**.
@@ -40,7 +40,7 @@ You need to run three SQL files in order. Choose one method:
 
 ### Method A: DBeaver (recommended)
 
-1. In DBeaver, expand your connection → **sqlcourse** → **Schemas** → **public**.
+1. In DBeaver, expand your connection → **postgres** → **Schemas** → **public**.
 2. Right-click the connection → **SQL Editor** → **Open SQL Script**.
 3. Open: `module-01-sql-concepts/project/schema.sql`
 4. Press **Ctrl+Enter** (or click Execute) to run the whole script.
@@ -53,9 +53,9 @@ You need to run three SQL files in order. Choose one method:
 ```powershell
 cd "C:\Users\GURINDER\Gurinder Data\My_GitHub\sql_course-1"
 
-Get-Content module-01-sql-concepts/project/schema.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
-Get-Content module-01-sql-concepts/project/constraints.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
-Get-Content module-01-sql-concepts/project/seed_data.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+Get-Content module-01-sql-concepts/project/schema.sql | docker exec -i sqlcourse-postgres psql -U postgres -d postgres
+Get-Content module-01-sql-concepts/project/constraints.sql | docker exec -i sqlcourse-postgres psql -U postgres -d postgres
+Get-Content module-01-sql-concepts/project/seed_data.sql | docker exec -i sqlcourse-postgres psql -U postgres -d postgres
 ```
 
 ---
@@ -64,8 +64,8 @@ Get-Content module-01-sql-concepts/project/seed_data.sql | docker exec -i sqlcou
 
 In DBeaver:
 
-1. Right-click **sqlcourse** → **Refresh** (or F5).
-2. Expand **sqlcourse** → **Schemas** → **public** → **Tables**.
+1. Right-click **postgres** → **Refresh** (or F5).
+2. Expand **postgres** → **Schemas** → **public** → **Tables**.
 
 You should see tables such as:
 - `customers`
@@ -144,7 +144,7 @@ SELECT * FROM customers LIMIT 5;
 | Issue | Fix |
 |-------|-----|
 | "Connection refused" | Wait 15 seconds after `docker-compose up -d`. Check `docker ps`. |
-| "Password authentication failed" | Leave password blank (trust auth). If you changed docker-compose recently, run `.\setup.ps1` to recreate the DB. |
+| "Password authentication failed" | Use password `postgres`. Run `.\setup.ps1` if you changed credentials. |
 | "Relation does not exist" | Run schema.sql, constraints.sql, seed_data.sql in order. |
 | Tables empty after seed_data | Check for errors in the Messages tab when running seed_data.sql. |
 

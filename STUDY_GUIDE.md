@@ -19,7 +19,7 @@ A practical guide to using this repository for self-study. Follow phases in orde
 
 | Tool | Purpose | Install |
 |------|---------|---------|
-| **psql** (CLI) | Command-line SQL client | Comes with PostgreSQL. Use Docker: `docker exec -it sqlcourse-postgres psql -U sqlcourse -d sqlcourse` |
+| **psql** (CLI) | Command-line SQL client | Comes with PostgreSQL. Use Docker: `docker exec -it sqlcourse-postgres psql -U postgres -d postgres` |
 | **pgAdmin** | GUI for PostgreSQL | [pgadmin.org](https://www.pgadmin.org/download/) — or use Docker: `docker-compose up -d` (pgAdmin included) |
 | **DBeaver** | Universal DB GUI (free) | [dbeaver.io](https://dbeaver.io/download/) — Community Edition |
 | **Azure Data Studio** | Lightweight SQL client | [aka.ms/azuredatastudio](https://aka.ms/azuredatastudio) — with PostgreSQL extension |
@@ -72,14 +72,14 @@ docker-compose up -d
 docker-compose --profile tools up -d
 ```
 
-pgAdmin will be at http://localhost:5050 (email/password from `.env` or defaults: admin@sqlcourse.local / admin).
+pgAdmin will be at http://localhost:5050 (email/password from `.env` or defaults: admin@postgres.local / admin).
 
 ### 4. Verify Connection
 
 **Option A — psql (inside container):**
 
 ```powershell
-docker exec -it sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+docker exec -it sqlcourse-postgres psql -U postgres -d postgres
 ```
 
 Then in psql:
@@ -92,35 +92,35 @@ SELECT version();
 **Option B — pgAdmin (if using `--profile tools`):**
 
 - Open http://localhost:5050
-- Add server: host `postgres` (Docker service name), port `5432`, database `sqlcourse`, user `sqlcourse`, password from `.env` (default: `sqlcourse`)
+- Add server: host `postgres` (Docker service name), port `5432`, database `postgres`, user `postgres`, password from `.env` (default: `postgres`)
 
 **Option C — DBeaver:**
 
 - New Connection → PostgreSQL
-- Host: `localhost`, Port: `5432`, Database: `sqlcourse`, User: `sqlcourse`, Password: from `.env`
+- Host: `localhost`, Port: `5432`, Database: `postgres`, User: `postgres`, Password: from `.env`
 
 ### 5. Load Module 1 Schema
 
 **Option A — PowerShell (pipe file into container):**
 
 ```powershell
-Get-Content module-01-sql-concepts/project/schema.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
-Get-Content module-01-sql-concepts/project/constraints.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
-Get-Content module-01-sql-concepts/project/seed_data.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+Get-Content module-01-sql-concepts/project/schema.sql | docker exec -i sqlcourse-postgres psql -U postgres -d postgres
+Get-Content module-01-sql-concepts/project/constraints.sql | docker exec -i sqlcourse-postgres psql -U postgres -d postgres
+Get-Content module-01-sql-concepts/project/seed_data.sql | docker exec -i sqlcourse-postgres psql -U postgres -d postgres
 ```
 
 **Option B — pgAdmin or DBeaver (easiest on Windows):**
 
-1. Connect to the database (localhost:5432, sqlcourse/sqlcourse).
+1. Connect to the database (localhost:5432, postgres/postgres).
 2. Open each file: `module-01-sql-concepts/project/schema.sql`, then `constraints.sql`, then `seed_data.sql`.
 3. Execute (F5 or Run).
 
 **Option C — Git Bash (if installed):**
 
 ```bash
-docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse < module-01-sql-concepts/project/schema.sql
-docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse < module-01-sql-concepts/project/constraints.sql
-docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse < module-01-sql-concepts/project/seed_data.sql
+docker exec -i sqlcourse-postgres psql -U postgres -d postgres < module-01-sql-concepts/project/schema.sql
+docker exec -i sqlcourse-postgres psql -U postgres -d postgres < module-01-sql-concepts/project/constraints.sql
+docker exec -i sqlcourse-postgres psql -U postgres -d postgres < module-01-sql-concepts/project/seed_data.sql
 ```
 
 ---

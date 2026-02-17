@@ -37,7 +37,7 @@ module-01-sql-concepts/
 ```bash
 # From repo root
 docker-compose up -d
-psql -h localhost -U sqlcourse -d sqlcourse -f module-01-sql-concepts/project/schema.sql
-psql -h localhost -U sqlcourse -d sqlcourse -f module-01-sql-concepts/project/constraints.sql
-psql -h localhost -U sqlcourse -d sqlcourse -f module-01-sql-concepts/project/seed_data.sql
+psql -h localhost -U postgres -d postgres -f module-01-sql-concepts/project/schema.sql
+psql -h localhost -U postgres -d postgres -f module-01-sql-concepts/project/constraints.sql
+psql -h localhost -U postgres -d postgres -f module-01-sql-concepts/project/seed_data.sql
 ```

@@ -1,6 +1,6 @@
 # Quick Start — Skip the Hassle
 
-**Trust auth** is enabled — no password needed for DBeaver or psql.
+Use **password** `postgres` for DBeaver.
 
 ---
 
@@ -18,7 +18,7 @@ This starts PostgreSQL and loads the schema. Wait for "Done!".
 ## 2. Connect and run SQL
 
 ```powershell
-docker exec -it sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+docker exec -it sqlcourse-postgres psql -U postgres -d postgres
 ```
 
 You're in. Try:
@@ -35,18 +35,17 @@ SELECT * FROM customers LIMIT 5;
 ## 3. Run a SQL file
 
 ```powershell
-Get-Content module-01-sql-concepts/project/exercises.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+Get-Content module-01-sql-concepts/project/exercises.sql | docker exec -i sqlcourse-postgres psql -U postgres -d postgres
 ```
 
 ---
 
 ## DBeaver (optional)
 
-- Host: `localhost` | Port: `5432` | Database: `sqlcourse` | User: `sqlcourse`
-- **Password:** leave blank (trust auth)
+- Host: `localhost` | Port: `5432` | Database: `postgres` | User: `postgres` | **Password: `postgres`**
 
 ---
 
 ## That's it
 
-Use psql or DBeaver. No password needed.
+Use psql or DBeaver with password `postgres`.

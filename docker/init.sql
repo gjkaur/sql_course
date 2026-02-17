@@ -9,5 +9,5 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 DO $$
 BEGIN
   RAISE NOTICE 'SQL Mastery Course database initialized successfully.';
-  RAISE NOTICE 'Connect with: psql -h localhost -U sqlcourse -d sqlcourse';
+  RAISE NOTICE 'Connect with: psql -h localhost -U postgres -d postgres';
 END $$;
