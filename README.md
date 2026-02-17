@@ -13,7 +13,8 @@ A production-grade PostgreSQL SQL course for backend and data engineers. Transfo
 
 ## Study Guide
 
-**[Step-by-step study guide](STUDY_GUIDE.md)** — Phased learning plan, Windows setup, tools required, and troubleshooting.
+- **[Step-by-step study guide](STUDY_GUIDE.md)** — Phased learning plan, Windows setup, tools required, and troubleshooting.
+- **[Next steps after setup](docs/NEXT_STEPS_AFTER_SETUP.md)** — DBeaver connection, loading schema, and starting Module 1.
 
 ## Prerequisites
 

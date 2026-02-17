@@ -8,6 +8,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-sqlcourse}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-sqlcourse}
       POSTGRES_DB: ${POSTGRES_DB:-sqlcourse}
+      # Trust auth = no password needed (DBeaver, pgAdmin, etc.) — dev only
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5432:5432"
     volumes:
@@ -27,7 +29,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@sqlcourse.local}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
     ports:
-      - "5050:80"
+      - "5051:80"
     depends_on:
       postgres:
         condition: service_healthy

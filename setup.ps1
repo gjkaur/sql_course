@@ -1,0 +1,24 @@
+# SQL Course - One-Time Setup (PowerShell)
+# Run from repo root: .\setup.ps1
+
+Write-Host "Stopping containers..." -ForegroundColor Yellow
+docker-compose down 2>$null
+
+Write-Host "Removing old database volume..." -ForegroundColor Yellow
+docker volume rm sql_course-1_pgdata 2>$null
+
+Write-Host "Starting PostgreSQL..." -ForegroundColor Yellow
+docker-compose up -d
+
+Write-Host "Waiting 15 seconds for PostgreSQL to initialize..." -ForegroundColor Yellow
+Start-Sleep -Seconds 15
+
+Write-Host "Loading schema..." -ForegroundColor Yellow
+Get-Content module-01-sql-concepts/project/schema.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+Get-Content module-01-sql-concepts/project/constraints.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+Get-Content module-01-sql-concepts/project/seed_data.sql | docker exec -i sqlcourse-postgres psql -U sqlcourse -d sqlcourse
+
+Write-Host "`nDone! Connect with:" -ForegroundColor Green
+Write-Host "  psql:  docker exec -it sqlcourse-postgres psql -U sqlcourse -d sqlcourse" -ForegroundColor Cyan
+Write-Host "  DBeaver: localhost:5432, db=sqlcourse, user=sqlcourse, password= (leave blank)" -ForegroundColor Cyan
+Write-Host "`nThen run: SELECT * FROM customers LIMIT 5;" -ForegroundColor Gray
