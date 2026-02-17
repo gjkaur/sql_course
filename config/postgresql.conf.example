@@ -1,0 +1,20 @@
+# PostgreSQL Configuration Example
+# Copy to postgresql.conf and customize for your environment
+# Location: $PGDATA/postgresql.conf or use -c flag
+
+# --- Memory ---
+shared_buffers = 256MB
+effective_cache_size = 1GB
+work_mem = 16MB
+maintenance_work_mem = 128MB
+
+# --- WAL ---
+wal_buffers = 16MB
+checkpoint_completion_target = 0.9
+
+# --- Logging (slow query analysis) ---
+log_min_duration_statement = 1000
+log_statement = 'none'
+
+# --- Extensions ---
+# shared_preload_libraries = 'pg_stat_statements'

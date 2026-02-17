@@ -1,0 +1,17 @@
+version: '3.8'
+# Capstone: PostgreSQL for e-commerce schema
+# Run from repo root: docker-compose up -d (use root docker-compose)
+# Or: docker-compose -f capstone/ecommerce-database-system/application/docker-compose.yml up -d
+# API demo: use module-05-application-integration/mini-backend
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: sqlcourse
+      POSTGRES_PASSWORD: sqlcourse
+      POSTGRES_DB: sqlcourse
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../../../docker/init.sql:/docker-entrypoint-initdb.d/init.sql

@@ -1,0 +1,15 @@
+# PostgreSQL Client Authentication Configuration Example
+# pg_hba.conf - controls who can connect and how
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# Local connections
+local   all             all                                     trust
+host    all             all             127.0.0.1/32            scram-sha-256
+host    all             all             ::1/128                  scram-sha-256
+
+# Docker network (adjust subnet as needed)
+host    all             all             172.16.0.0/12           scram-sha-256
+
+# Replication (if needed)
+# host  replication     all             127.0.0.1/32            scram-sha-256

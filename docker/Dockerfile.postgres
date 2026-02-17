@@ -1,0 +1,10 @@
+# Optional: Custom PostgreSQL image with extensions pre-installed
+# Use this if you need additional extensions beyond the default postgres:16-alpine
+
+FROM postgres:16-alpine
+
+# Install additional tools (optional)
+RUN apk add --no-cache postgresql-contrib
+
+# Copy custom config if needed
+# COPY postgres.conf /usr/share/postgresql/postgresql.conf.sample
