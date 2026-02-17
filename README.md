@@ -2,7 +2,14 @@
 
 A production-grade PostgreSQL SQL course for backend and data engineers. Transform theoretical SQL knowledge into job-ready skills with schema design, performance tuning, security, and real-world projects.
 
-**Based on:** SQL All-In-One For Dummies, 3rd Edition by Allen G. Taylor
+**Based on:** *SQL All-In-One For Dummies, 3rd Edition* by Allen G. Taylor
+
+## Highlights
+
+- **7 modules** + capstone — from SQL basics to DBA-level tuning
+- **35+ engineer-level chapter docs** — deep technical explanations, PostgreSQL examples, interview Q&A
+- **Production focus** — real failure scenarios, best practices, common mistakes
+- **Interview prep** — beginner to advanced questions, troubleshooting scenarios, SQL glossary
 
 ## Prerequisites
 
@@ -47,11 +54,28 @@ psql -h localhost -U sqlcourse -d sqlcourse
 | [Module 7](module-07-performance-tuning/) | Performance & Tuning | DBA | 12-15 |
 | [Capstone](capstone/ecommerce-database-system/) | Enterprise E-Commerce System | Portfolio | 20-30 |
 
+## Book Chapter Deep-Dives
+
+Engineer-level documentation for every chapter of the source book. Each includes: core concepts, production relevance, PostgreSQL examples, common mistakes, interview questions, and practical exercises.
+
+| Book | Chapters | Docs |
+|------|----------|------|
+| Book 1: SQL Concepts | 6 | [Ch 1–6](docs/book-chapters/) |
+| Book 2: Relational Development | 4 | [Ch 1–4](docs/book-chapters/) |
+| Book 3: SQL Queries | 5 | [Ch 1–5](docs/book-chapters/) |
+| Book 4: Data Security | 4 | [Ch 1–4](docs/book-chapters/) |
+| Book 5: SQL and Programming | 7 | [Ch 1–7](docs/book-chapters/) |
+| Book 6: SQL, XML, and JSON | 4 | [Ch 1–4](docs/book-chapters/) |
+| Book 7: Database Tuning | 3 | [Ch 1–3](docs/book-chapters/) |
+| Book 8: Appendices | 2 | [Glossary](docs/book-chapters/BOOK8-Appendix-A-Glossary.md), [Reserved Words](docs/book-chapters/BOOK8-Appendix-B-Reserved-Words.md) |
+
+→ [Full book-to-module mapping](docs/BOOK_MAPPING.md)
+
 ## Portfolio Projects
 
-- **[Online Retail System](module-01-sql-concepts/project/)** - Schema design, constraints, seed data
-- **[Fleet Repair System](module-02-relational-development/case-study/fleet_repair/)** - Normalization, index strategy, EXPLAIN analysis
-- **[Enterprise E-Commerce Database](capstone/ecommerce-database-system/)** - Full production-grade schema, security, performance
+- **[Online Retail System](module-01-sql-concepts/project/)** — Schema design, constraints, seed data
+- **[Fleet Repair System](module-02-relational-development/case-study/fleet_repair/)** — Normalization, index strategy, EXPLAIN analysis
+- **[Enterprise E-Commerce Database](capstone/ecommerce-database-system/)** — Full production-grade schema, security, performance
 
 ## Interview Prep
 
@@ -59,13 +83,15 @@ psql -h localhost -U sqlcourse -d sqlcourse
 - [Intermediate Questions](interview-prep/questions/intermediate.md)
 - [Advanced Questions](interview-prep/questions/advanced.md)
 - [Troubleshooting Scenarios](interview-prep/scenarios/troubleshooting.md)
+- [SQL Glossary](interview-prep/flashcards/sql_glossary.md)
 
 ## Documentation
 
 - [Course Roadmap](docs/COURSE_ROADMAP.md)
 - [Book-to-Module Mapping](docs/BOOK_MAPPING.md)
 - [Production Failure Case Studies](docs/PRODUCTION_FAILURES.md)
+- [Book Chapters](docs/book-chapters/) — All 35+ chapter documents
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+MIT License — See [LICENSE](LICENSE) for details.
