@@ -11,6 +11,10 @@ A production-grade PostgreSQL SQL course for backend and data engineers. Transfo
 - **Production focus** — real failure scenarios, best practices, common mistakes
 - **Interview prep** — beginner to advanced questions, troubleshooting scenarios, SQL glossary
 
+## Study Guide
+
+**[Step-by-step study guide](STUDY_GUIDE.md)** — Phased learning plan, Windows setup, tools required, and troubleshooting.
+
 ## Prerequisites
 
 - **Docker** and Docker Compose (for reproducible PostgreSQL environment)
